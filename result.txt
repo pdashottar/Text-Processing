@@ -1,0 +1,132 @@
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.8
+stride 1
+batch size 128
+num filters 5
+
+epoch	train_acc	val_acc		test_acc
+1			0.51	0.57
+2			0.63	0.66		0.68
+3			0.59	0.56		0.56
+4			0.80	0.90		0.92			<--- overfitting
+5			0.92	0.97		0.97
+6			0.91	0.96		
+9			0.95	0.99
+20			0.98	0.98		0.99
+---------------------------------------------------
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.8
+stride 1
+batch size 128
+num filters 10
+
+epoch	train_acc	val_acc		test_acc
+1		0.53		0.56
+5		0.59		0.82		0.82
+10		0.97		0.98					<--- overfitting
+-------------------------------------------------------------
+filter_size (2,3,4)
+pool dropout 0.5
+dense dropout 0.8
+stride 1
+batch size 128
+num filters 5
+
+epoch	train_acc	val_acc		test_acc
+5		0.87		0.96					<--- overfitting
+-------------------------------------------------------------
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.5
+stride 1
+batch size 128
+num filters 5
+
+epoch	train_acc	val_acc		test_acc
+5		0.97		0.99
+--------------------------------------------------------------
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.8
+stride 1
+batch size 128
+num filters 5
+
+validation split - 0.2 (default 0.5)
+epoch	train_acc	val_acc		test_acc
+5		0.93		0.97								<--- overfitting
+----------------------------------------------------------------
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.8
+stride 1
+batch size 128
+num filters 5
+
+validation split - 0.7 (default 0.5)
+epoch	train_acc	val_acc		test_acc
+5		0.56		0.71
+----------------------------------------------------------------	train data decrease or batch size increase -> acc increase
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.8
+stride 1
+batch size 500
+num filters 5
+
+epoch	train_acc	val_acc		test_acc
+5		0.51		0.56
+10		0.93		0.96								<---- overfit
+------------------------------------------------------------------
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.8
+stride 2
+batch size 300
+num filters 5
+
+epoch	train_acc	val_acc		test_acc
+10		0.88		0.97								<---- overfit
+-------------------------------------------------------------------------
+
+filter_size (2,3,4)
+pool dropout 0.8
+dense dropout 0.8
+stride 1
+batch size 300
+num filters 5
+
+epoch	train_acc	val_acc		test_acc
+5		0.51		0.57								
+-------------------------------------------------------------------------
+filter_size (2,3,4,5,6)
+pool dropout 0.8
+dense dropout 0.8
+stride 1
+batch size 300
+num filters 5
+
+epoch	train_acc	val_acc		test_acc
+10		0.		0.								
+-------------------------------------------------------------------------
+spacy sentence to vector
+not good & good -> vector
+difference (similarity measure)
+lstm understand
+
+python cnn.py --batch_size 64 --epochs 5 --num_filters 100
+
+5		0.96		0.97
+
+---------------------
+bad ;really ;bad bad bad bad
+all give same probab
+m/c not learning that not good = bad
+therefore i am checking similarity btw vectors
+
+----------------------------------------
+Monday 3pm Skype
+1. Lavinshten dist & jaccard - using spacy library. i.e input will be vectors
+2. Come up with an LSTM model structure where i/p is 40 words & output is 0/1 (many to one)
